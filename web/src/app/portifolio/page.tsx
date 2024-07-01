@@ -56,7 +56,7 @@ const options = {
 async function fetchEvents() {
   try {
     const res = await fetch(
-      'http://127.0.0.1:1337/api/events?populate=*',
+      `${process.env.BASE_API_URL}/api/events?populate=*`,
       options,
     )
     const response = await res.json()
@@ -68,7 +68,7 @@ async function fetchEvents() {
 async function fetchVideos() {
   try {
     const res = await fetch(
-      'http://127.0.0.1:1337/api/videos?populate=*',
+      `${process.env.BASE_API_URL}/api/videos?populate=*`,
       options,
     )
     const response = await res.json()
