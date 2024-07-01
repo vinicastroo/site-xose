@@ -81,8 +81,8 @@ async function fetchVideos() {
 export default async function Portifolio() {
   const responseEvents = await fetchEvents()
   const responseVideos = await fetchVideos()
-  const events: EventsProps[] = responseEvents.data
-  const videos: VideosProps[] = responseVideos.data
+  const events: EventsProps[] = responseEvents ? responseEvents.data : []
+  const videos: VideosProps[] = responseEvents ? responseVideos.data : []
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
