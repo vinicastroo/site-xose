@@ -2,7 +2,6 @@ import { Header } from '@/components/header'
 import { Events } from './events'
 import { Footer } from '@/components/footer'
 import { Videos } from './videos'
-import { Suspense } from 'react'
 
 export interface PhotoData {
   id: number
@@ -60,6 +59,11 @@ async function fetchEvents() {
       options,
     )
     const response = await res.json()
+
+    if (!response) {
+      return []
+    }
+
     return response
   } catch (err) {
     console.error(err)
@@ -72,6 +76,11 @@ async function fetchVideos() {
       options,
     )
     const response = await res.json()
+
+    if (!response) {
+      return []
+    }
+
     return response
   } catch (err) {
     console.error(err)
@@ -92,19 +101,13 @@ export default async function Portifolio() {
         <div className="mt-20 w-full h-auto  m-auto p-5  py-10">
           <h1 className="text-4xl font-title mb-4 text-white">Videos</h1>
 
-          <div>
-            <Suspense fallback={<div>Carregando ...</div>}>
-              <Videos videos={videos} />
-            </Suspense>
-          </div>
+          <div>{videos.length > 0 && <Videos videos={videos} />}</div>
 
           <h1 className="text-2xl lg:text-4xl font-title my-4 text-white">
             Fotos de Eventos
           </h1>
 
-          <Suspense fallback={<div>Carregando ...</div>}>
-            <Events events={events} />
-          </Suspense>
+          {events.length && <Events events={events} />}
         </div>
       </div>
 
