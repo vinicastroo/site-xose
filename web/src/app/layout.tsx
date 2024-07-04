@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Notable } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+
 import './globals.css'
 
 const inter = Inter({
@@ -28,6 +30,7 @@ export default function RootLayout({
       <body className={(inter.className, notable.variable)}>
         <div className="scrollbar-thumb-sky-700 scrollbar-track-sky-300">
           {children}
+          <Analytics />
         </div>
       </body>
     </html>
