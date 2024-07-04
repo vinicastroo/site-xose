@@ -9,10 +9,13 @@ import localFont from 'next/font/local'
 import Link from 'next/link'
 import { Footer } from '@/components/footer'
 import { ImagesScroll } from '@/components/images-scroll'
+import { getImages } from '@/utils/getImages'
 
 const myFont = localFont({ src: '../assets/helvetica-compressed.otf' })
 
-export default function Home() {
+export default async function Home() {
+  const images = getImages()
+
   return (
     <div className={`flex flex-col bg-zinc-950`}>
       <div className="flex flex-col h-screen w-full max-w-none lg:max-w-screen bg-hero object-cover bg-cover bg-no-repeat">
@@ -32,15 +35,6 @@ export default function Home() {
             Entrar em contato
           </button>
         </div>
-
-        {/* <Image
-          src={banner}
-          width={1055}
-          height={498}
-          quality={100}
-          alt=""
-          className="brightness-50"
-        /> */}
       </div>
 
       <div
@@ -92,7 +86,7 @@ export default function Home() {
                 height={288}
                 quality={100}
                 alt=""
-                className="w-full h-full object-cover absolute -top-3 -left-3  translate-x-10 lg:translate-x-0"
+                className="w-full h-full object-cover absolute -top-3 lg:-left-3  translate-x-10 lg:translate-x-0"
               />
             </div>
 
@@ -111,7 +105,7 @@ export default function Home() {
                 height={288}
                 quality={100}
                 alt=""
-                className="w-full h-full object-cover absolute -top-3 -left-3 translate-x-10 lg:translate-x-0 "
+                className="w-full h-full object-cover absolute -top-3 lg:-left-3 translate-x-10 lg:translate-x-0 "
               />
             </div>
           </div>
@@ -130,7 +124,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <ImagesScroll />
+        <ImagesScroll images={images} />
 
         {/* <Button className="w-1/3 m-auto mt-10 ">Entrar em contato</Button> */}
 
