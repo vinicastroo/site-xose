@@ -7,7 +7,7 @@ const myFont = localFont({ src: '../assets/helvetica-compressed.otf' })
 export function Header() {
   return (
     <div
-      className={`fixed z-50 w-full item-center bg-black text-white flex p-4 justify-between `}
+      className={`fixed z-50 w-full item-center bg-zinc-950 text-white flex p-4 justify-between `}
     >
       <Link href="/" className={`text-lg lg:text-3xl ${myFont.className}`}>
         Guilherme Schulze

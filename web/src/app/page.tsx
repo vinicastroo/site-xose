@@ -26,7 +26,7 @@ export default async function Home() {
             Eternizando momentos
           </h1>
           <h2
-            className={`lg:tracking-title text-base lg:text-4xl  text-white font-title text-center pb-6 bg-[rgba(0,0,0, 0.1)]`}
+            className={`lg:tracking-title text-base lg:text-lg mt-2 text-white font-title text-center pb-6 bg-[rgba(0,0,0, 0.1)]`}
           >
             Meu olhar, suas memórias
           </h2>
