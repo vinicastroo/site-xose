@@ -6,28 +6,9 @@ import { Videos } from './videos'
 export interface PhotoData {
   id: number
   attributes: {
-    formats: {
-      thumbnail: {
-        width: number
-        height: number
-        url: string
-      }
-      medium: {
-        width: number
-        height: number
-        url: string
-      }
-      small: {
-        width: number
-        height: number
-        url: string
-      }
-      large: {
-        width: number
-        height: number
-        url: string
-      }
-    }
+    width: number
+    height: number
+    url: string
   }
 }
 export interface EventsProps {
@@ -90,6 +71,7 @@ async function fetchVideos() {
 export default async function Portifolio() {
   const responseEvents = await fetchEvents()
   const responseVideos = await fetchVideos()
+
   const events: EventsProps[] = responseEvents ? responseEvents.data : []
   const videos: VideosProps[] = responseEvents ? responseVideos.data : []
 

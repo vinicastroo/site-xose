@@ -32,16 +32,13 @@ export function Events({ events }: { events: EventsProps[] }) {
                   <PhotoProvider>
                     <CarouselContent>
                       {event.attributes.fotos.data.map((photo) => (
-                        <PhotoView
-                          key={photo.id}
-                          src={photo.attributes.formats.large.url}
-                        >
+                        <PhotoView key={photo.id} src={photo.attributes.url}>
                           <CarouselItem className="md:basis-1/2 lg:basis-1/6">
                             <Image
-                              src={photo.attributes.formats.medium.url}
-                              alt={photo.attributes.formats.medium.url}
-                              width={photo.attributes.formats.medium.width}
-                              height={photo.attributes.formats.medium.height}
+                              src={photo.attributes.url}
+                              alt={photo.attributes.url}
+                              width={photo.attributes.width}
+                              height={photo.attributes.height}
                               className="cursor-pointer hover:brightness-110 rounded-md object-cover h-60 w-80"
                             />
                           </CarouselItem>
