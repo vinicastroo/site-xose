@@ -36,13 +36,14 @@ export const ParallaxScroll = ({
                 y: [0, -2950, 0],
               }}
               transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
+              className="relative h-[400px] w-[400px]"
             >
               <Image
                 src={el}
-                className="h-96 w-full  rounded-lg gap-10 !m-0 !p-0"
-                height="400"
-                width="400"
+                className="h-96 w-full object-contain rounded-lg gap-10 !m-0 !p-0"
+                sizes="400px"
                 quality={100}
+                fill
                 alt="thumbnail"
               />
             </motion.div>
@@ -56,13 +57,14 @@ export const ParallaxScroll = ({
                 y: [0, -2950, 0],
               }}
               transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
+              className="relative h-[400px] w-[400px]"
             >
               <Image
                 src={el}
-                className="h-96 w-full  rounded-lg gap-10 !m-0 !p-0"
-                height="400"
-                width="400"
+                className="h-96 w-full object-contain rounded-lg gap-10 !m-0 !p-0"
+                sizes="400px"
                 quality={100}
+                fill
                 alt="thumbnail"
               />
             </motion.div>
@@ -76,13 +78,14 @@ export const ParallaxScroll = ({
                 y: [0, -2950, 0],
               }}
               transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
+              className="relative h-[400px] w-[400px]"
             >
               <Image
                 src={el}
-                className="h-96 w-full  rounded-lg gap-10 !m-0 !p-0"
-                height="400"
-                width="400"
+                className="h-96 w-full object-contain rounded-lg gap-10 !m-0 !p-0"
+                sizes="400px"
                 quality={100}
+                fill
                 alt="thumbnail"
               />
             </motion.div>

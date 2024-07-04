@@ -31,9 +31,12 @@ export default async function Home() {
             Meu olhar, suas memórias
           </h2>
 
-          <button className="px-6 py-2 bg-yellow-400 rounded-md capitalize font-poppins text-sm lg:text-base  text-black  font-bold transform hover:-translate-y-1 transition duration-400">
+          <Link
+            href="https://api.whatsapp.com/send?phone=5547999377961&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+            className="px-6 py-2 bg-yellow-400 rounded-md capitalize font-poppins text-sm lg:text-base  text-black  font-bold transform hover:-translate-y-1 transition duration-400"
+          >
             Entrar em contato
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -131,9 +134,12 @@ export default async function Home() {
 
         {/* <Button className="w-1/3 m-auto mt-10 ">Entrar em contato</Button> */}
 
-        <button className="px-6 py-2 bg-yellow-400 border  border-yellow-400 text-black w-auto mt-8 m-auto rounded-lg font-bold transform hover:-translate-y-1 transition duration-400">
+        <Link
+          href="https://api.whatsapp.com/send?phone=5547999377961&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+          className="px-6 py-2 bg-yellow-400 border  border-yellow-400 text-black w-auto mt-8 m-auto rounded-lg font-bold transform hover:-translate-y-1 transition duration-400"
+        >
           Entrar em contato
-        </button>
+        </Link>
       </div>
 
       <Footer />
