@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Poppins, Notable } from 'next/font/google'
+import { Inter, Notable } from 'next/font/google'
 import './globals.css'
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-poppins',
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={(poppins.className, notable.variable)}>
+      <body className={(inter.className, notable.variable)}>
         <div className="scrollbar-thumb-sky-700 scrollbar-track-sky-300">
           {children}
         </div>
