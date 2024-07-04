@@ -21,7 +21,7 @@ export function Videos({ videos }: { videos: VideosProps[] }) {
                   <ReactPlayer
                     url={video.attributes.url}
                     controls={true}
-                    width={400}
+                    width={350}
                     height={380}
                   />
                 </CarouselItem>
