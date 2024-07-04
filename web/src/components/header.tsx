@@ -16,19 +16,19 @@ export function Header() {
       <div className="flex h-auto item-center space-x-4">
         <Link
           href="/#sobre"
-          className="flex items-center justify-center font-title text-xs lg:text-base font-semibold"
+          className="flex items-center justify-center font-poppins text-sm lg:text-base font-semibold"
         >
           Sobre
         </Link>
         <Link
           href="/portifolio"
-          className="flex items-center justify-center font-title  text-xs lg:text-base font-semibold"
+          className="flex items-center justify-center font-poppins text-sm lg:text-base font-semibold"
         >
           Portfólio
         </Link>
         <Link
           href="/"
-          className="flex items-center justify-center font-title text-xs lg:text-base font-semibold"
+          className="flex items-center justify-center font-poppins text-sm lg:text-base font-semibold"
         >
           Contato
         </Link>
