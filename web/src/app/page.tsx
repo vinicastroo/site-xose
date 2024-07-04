@@ -86,7 +86,7 @@ export default async function Home() {
                 height={288}
                 quality={100}
                 alt=""
-                className="w-full h-full object-cover absolute -top-3 lg:-left-3  translate-x-10 lg:translate-x-0"
+                className="w-full h-full object-cover absolute -top-3 left-0 translate-x-0 lg:translate-x-3 "
               />
             </div>
 
@@ -105,7 +105,7 @@ export default async function Home() {
                 height={288}
                 quality={100}
                 alt=""
-                className="w-full h-full object-cover absolute -top-3 lg:-left-3 translate-x-10 lg:translate-x-0 "
+                className="w-full h-full object-cover absolute -top-3 left-0 translate-x-0 lg:translate-x-3 "
               />
             </div>
           </div>
