@@ -105,7 +105,8 @@ export default async function Home() {
                 height={288}
                 quality={100}
                 alt=""
-                className="w-full h-full object-cover absolute -top-3 left-0 translate-x-0 lg:translate-x-3 "
+                unoptimized
+                className="w-full h-full object-cover absolute -top-3 left-0 translate-x-0 lg:translate-x-3  "
               />
             </div>
           </div>
