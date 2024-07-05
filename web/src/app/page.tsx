@@ -126,7 +126,7 @@ export default async function Home() {
         className="flex flex-col w-full h-screen m-auto max-w-7xl text-white p-4 py-10"
       >
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl lg:text-4xl font-title">Projetos</h1>
+          <h1 className="text-2xl lg:text-4xl font-title mt-10">Projetos</h1>
 
           <Link
             href="/portifolio"
