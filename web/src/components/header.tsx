@@ -18,7 +18,7 @@ export function Header() {
         <span className="font-title">Guilherme Schulze</span>
       </Link>
 
-      <div className="flex h-auto item-center space-x-4 sr-only lg:">
+      <div className="flex h-auto item-center space-x-4 sr-only lg:not-sr-only">
         <Link
           href="/#sobre"
           className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"

@@ -32,10 +32,10 @@ export default async function Home() {
           </h2>
 
           <Link
-            href="https://api.whatsapp.com/send?phone=5547999377961&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
-            className="px-6 py-2 bg-yellow-400 rounded-md capitalize font-inter text-sm lg:text-base  text-black  font-bold transform hover:-translate-y-1 transition duration-400"
+            href="https://api.whatsapp.com/send?phone=5547999377961&text=Ola, gostaria de agendar uma sessão"
+            className="px-6 py-2 uppercase bg-yellow-400 rounded-md font-inter text-sm lg:text-base  text-black  font-bold transform hover:-translate-y-1 transition duration-400"
           >
-            Entrar em contato
+            Agende agora!
           </Link>
         </div>
       </div>
