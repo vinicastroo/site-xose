@@ -77,10 +77,10 @@ export default async function Portifolio() {
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
-      <div className="flex flex-col min-h-screen max-w-screen">
+      <div className="flex flex-col min-h-screen max-w-screen mb-10">
         <Header />
 
-        <div className="mt-20 w-full h-auto  m-auto p-5  py-10">
+        <div className="mt-20 w-full h-auto m-auto p-5  py-10">
           <h1 className="text-4xl font-title mb-4 text-white">Videos</h1>
 
           <div>{videos.length > 0 && <Videos videos={videos} />}</div>
