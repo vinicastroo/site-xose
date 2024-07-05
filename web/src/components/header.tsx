@@ -1,3 +1,4 @@
+'use client'
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import {
@@ -8,11 +9,26 @@ import {
   SheetTrigger,
 } from './ui/sheet'
 import { Button } from './ui/button'
-
+import { useEffect, useState } from 'react'
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
     <div
-      className={`fixed z-50 w-full item-center bg-zinc-950 text-white flex p-4 justify-between items-center`}
+      className={`fixed z-50 w-full item-center transition ${isScrolled ? 'bg-black' : 'bg-transparent'} text-white flex p-4 justify-between items-center`}
     >
       <Link href="/" className={`text-lg lg:text-3xl`}>
         <span className="font-title">Guilherme Schulze</span>

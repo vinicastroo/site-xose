@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={(inter.className, notable.variable)}>
-        <div className="scrollbar-thumb-sky-700 scrollbar-track-sky-300">
+        <div className="antialiased">
           {children}
           <Analytics />
         </div>

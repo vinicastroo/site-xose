@@ -13,7 +13,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <strong className="border-b border-zinc-950 text-zinc-950">
+            <strong className="pb-2 border-b border-zinc-950 text-zinc-950">
               Menu
             </strong>
             <Link
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <strong className="border-b border-zinc-950 text-zinc-950">
+            <strong className="pb-2 border-b border-zinc-950 text-zinc-950">
               Redes Sociais
             </strong>
 
@@ -99,7 +99,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <strong className="border-b border-zinc-950 text-zinc-950">
+            <strong className="pb-2 border-b border-zinc-950 text-zinc-950">
               Fale comigo
             </strong>
             <Link

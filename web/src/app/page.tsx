@@ -139,7 +139,7 @@ export default async function Home() {
         <ImagesScroll images={images} />
       </div>
 
-      <div className="flex flex-col w-full  m-auto max-w-7xl text-white p-4 py-10 mb-8">
+      <div className="flex flex-col w-full  m-auto max-w-7xl text-white p-4 py-16 mb-8">
         <h1 className="text-center font-title text-lg lg:text-4xl">
           Registre Seus Melhores Momentos
         </h1>

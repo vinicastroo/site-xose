@@ -22,7 +22,10 @@ export const ParallaxScroll = ({
 
   return (
     <motion.div
-      className={cn('items-start overflow-hidden  w-full', className)}
+      className={cn(
+        'items-start overflow-hidden min-h-[800px]  w-full',
+        className,
+      )}
     >
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-start mx-auto gap-5"
