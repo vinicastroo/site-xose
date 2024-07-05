@@ -1,39 +1,92 @@
+import { Menu } from 'lucide-react'
 import Link from 'next/link'
-import localFont from 'next/font/local'
-import Image from 'next/image'
-
-// Font files can be colocated inside of `pages`
-const myFont = localFont({ src: '../assets/helvetica-compressed.otf' })
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from './ui/sheet'
+import { Button } from './ui/button'
 
 export function Header() {
   return (
     <div
-      className={`fixed z-50 w-full item-center bg-zinc-950 text-white flex p-4 justify-between `}
+      className={`fixed z-50 w-full item-center bg-zinc-950 text-white flex p-4 justify-between items-center`}
     >
-      <Link href="/" className={`text-lg lg:text-3xl ${myFont.className}`}>
-        <Image src="./logo.svg" width={35} height={35} alt="logo" />
+      <Link href="/" className={`text-lg lg:text-3xl`}>
+        <span className="font-title">Guilherme Schulze</span>
       </Link>
 
-      <div className="flex h-auto item-center space-x-4">
+      <div className="flex h-auto item-center space-x-4 sr-only lg:">
         <Link
           href="/#sobre"
           className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
         >
-          Sobre
+          Sobre Mim
+        </Link>
+        <Link
+          href="/#meus-serviços"
+          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
+        >
+          Meus Serviços
+        </Link>
+        <Link
+          href="/#projetos"
+          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
+        >
+          Projetos
         </Link>
         <Link
           href="/portifolio"
-          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
+          className="flex items-center justify-center font-inter text-sm lg:text-base font-bold"
         >
           Portfólio
         </Link>
-        <Link
-          href="/"
-          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
-        >
-          Contato
-        </Link>
       </div>
+
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" className="lg:sr-only">
+            <Menu className="size-5" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent>
+          <SheetHeader className="mt-4">
+            <SheetTitle className="w-full">
+              <strong className="font-title text-base">
+                Guilherme Schulze
+              </strong>
+            </SheetTitle>
+          </SheetHeader>
+          <div className="grid gap-4 py-4">
+            <Link
+              href="/#sobre"
+              className="flex font-inter text-sm lg:text-base font-semibold"
+            >
+              Sobre Mim
+            </Link>
+            <Link
+              href="/#meus-serviços"
+              className="flex font-inter text-sm lg:text-base font-semibold"
+            >
+              Meus Serviços
+            </Link>
+            <Link
+              href="/#projetos"
+              className="flex font-inter text-sm lg:text-base font-semibold"
+            >
+              Projetos
+            </Link>
+            <Link
+              href="/portifolio"
+              className="flex font-inter text-sm lg:text-base font-bold"
+            >
+              Portfólio
+            </Link>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   )
 }

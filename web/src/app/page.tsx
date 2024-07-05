@@ -71,7 +71,10 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="bg-zinc-50 w-full text-foreground p-4 h-screen flex items-center justify-center">
+      <div
+        id="meus-serviços"
+        className="bg-zinc-50 w-full text-foreground p-4 h-screen flex items-center justify-center"
+      >
         <div className="m-auto max-w-7xl w-full">
           <h1 className="text-2xl lg:text-4xl font-title">Meus serviços</h1>
 
@@ -118,7 +121,10 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col w-full h-screen m-auto max-w-7xl text-white p-4 py-10">
+      <div
+        id="projetos"
+        className="flex flex-col w-full h-screen m-auto max-w-7xl text-white p-4 py-10"
+      >
         <div className="flex justify-between items-center">
           <h1 className="text-2xl lg:text-4xl font-title">Projetos</h1>
 
@@ -131,17 +137,23 @@ export default async function Home() {
         </div>
 
         <ImagesScroll images={images} />
-
-        {/* <Button className="w-1/3 m-auto mt-10 ">Entrar em contato</Button> */}
-
-        <Link
-          href="https://api.whatsapp.com/send?phone=5547999377961&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
-          className="px-6 py-2 bg-yellow-400 border  border-yellow-400 text-black w-auto mt-8 m-auto rounded-lg font-bold transform hover:-translate-y-1 transition duration-400"
-        >
-          Entrar em contato
-        </Link>
       </div>
 
+      <div className="flex flex-col w-full  m-auto max-w-7xl text-white p-4 py-10 mb-8">
+        <h1 className="text-center font-title text-lg lg:text-4xl">
+          Registre Seus Melhores Momentos
+        </h1>
+        <p className="text-center mt-4 lg:text-lg">
+          Fotos e vídeos que contam sua história de forma única. Agende sua
+          sessão hoje mesmo.
+        </p>
+        <Link
+          href="https://api.whatsapp.com/send?phone=5547999377961&text=Ola, gostaria de agendar uma sessão"
+          className="px-6 py-2 bg-yellow-400 border uppercase border-yellow-400 text-zinc-950 w-auto mt-8 m-auto rounded-lg font-bold transform hover:-translate-y-1 transition duration-400"
+        >
+          Agende Agora!
+        </Link>
+      </div>
       <Footer />
     </div>
   )
