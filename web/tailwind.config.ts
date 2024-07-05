@@ -22,7 +22,7 @@ const config = {
     },
     fontFamily: {
       title: 'var(--font-notable)',
-      poppins: 'var(--font-poppins)',
+      inter: 'var(--font-inter)',
     },
     extend: {
       backgroundImage: {

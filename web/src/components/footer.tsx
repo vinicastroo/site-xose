@@ -37,7 +37,7 @@ export function Footer() {
 
           <Link
             href="https://www.codelabz.com.br/"
-            className="flex gap-2 text-xs items-center font-poppins group"
+            className="flex gap-2 text-xs items-center font-inter group"
           >
             <span className="text-white group-hover:underline">
               Desenvolvido por
