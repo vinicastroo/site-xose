@@ -30,35 +30,33 @@ export function Header() {
     <div
       className={`fixed z-50 w-full item-center transition ${isScrolled ? 'bg-black' : 'bg-transparent'} text-white flex p-4 justify-between items-center`}
     >
-      <Link href="/" className={`text-lg lg:text-3xl`}>
+      <Link href="/" className={`text-lg lg:text-2xl hover:opacity-80`}>
         <span className="font-title">Guilherme Schulze</span>
       </Link>
 
       <div className="flex h-auto item-center space-x-4 sr-only lg:not-sr-only">
         <Link
           href="/#sobre"
-          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
+          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold hover:underline"
         >
           Sobre Mim
         </Link>
         <Link
           href="/#meus-serviços"
-          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
+          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold hover:underline"
         >
           Meus Serviços
         </Link>
         <Link
           href="/#projetos"
-          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold"
+          className="flex items-center justify-center font-inter text-sm lg:text-base font-semibold hover:underline"
         >
           Projetos
         </Link>
-        <Link
-          href="/portifolio"
-          className="flex items-center justify-center font-inter text-sm lg:text-base font-bold"
-        >
+
+        <Button className="bg-white text-black font-bold" size="sm">
           Portfólio
-        </Link>
+        </Button>
       </div>
 
       <Sheet>

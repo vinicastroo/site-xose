@@ -80,7 +80,7 @@ export default async function Home() {
 
           <div className="flex flex-col mt-10 gap-10">
             <div
-              className={`h-52 lg:h-72 p-8 border flex items-end relative bg-black`}
+              className={`h-52 lg:h-72 p-8 border flex items-end relative rounded-md bg-black`}
             >
               <span
                 className={`text-3xl flex item-center gap-4  lg:text-6xl bottom-0 text-white uppercase ${myFont.className} z-10`}
@@ -94,12 +94,12 @@ export default async function Home() {
                 height={288}
                 quality={100}
                 alt=""
-                className="w-full h-full object-cover absolute -top-3 left-0 translate-x-0 lg:translate-x-3 "
+                className="w-full h-full object-cover absolute rounded-md -top-3 left-0 translate-x-0 lg:translate-x-3 "
               />
             </div>
 
             <div
-              className={`h-52 lg:h-72 p-8 border flex items-end relative bg-black`}
+              className={`h-52 lg:h-72 p-8 border flex items-end relative rounded-md bg-black`}
             >
               <span
                 className={`text-3xl flex item-center gap-4 lg:text-6xl bottom-0 text-white uppercase ${myFont.className} z-10`}
@@ -114,7 +114,7 @@ export default async function Home() {
                 quality={100}
                 alt=""
                 unoptimized
-                className="w-full h-full object-cover absolute -top-3 left-0 translate-x-0 lg:translate-x-3  "
+                className="w-full h-full object-cover rounded-md absolute -top-3 left-0 translate-x-0 lg:translate-x-3  "
               />
             </div>
           </div>
@@ -149,7 +149,7 @@ export default async function Home() {
         </p>
         <Link
           href="https://api.whatsapp.com/send?phone=5547999377961&text=Ola, gostaria de agendar uma sessão"
-          className="px-6 py-2 bg-yellow-400 border uppercase border-yellow-400 text-zinc-950 w-auto mt-8 m-auto rounded-lg font-bold transform hover:-translate-y-1 transition duration-400"
+          className="px-6 py-2 bg-yellow-400 border uppercase border-yellow-400 text-zinc-950 w-auto mt-8 m-auto rounded-md font-bold transform hover:-translate-y-1 transition duration-400"
         >
           Agende Agora!
         </Link>
