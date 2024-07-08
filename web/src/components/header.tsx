@@ -54,7 +54,7 @@ export function Header() {
           Projetos
         </Link>
 
-        <Link href="/#projetos">
+        <Link href="/portifolio">
           <Button className="bg-white text-black font-bold" size="sm">
             Portfólio
           </Button>
