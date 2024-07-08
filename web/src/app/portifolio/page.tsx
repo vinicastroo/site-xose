@@ -1,3 +1,4 @@
+'use server'
 import { Header } from '@/components/header'
 import { Events } from './events'
 import { Footer } from '@/components/footer'
