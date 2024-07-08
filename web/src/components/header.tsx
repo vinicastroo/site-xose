@@ -54,9 +54,11 @@ export function Header() {
           Projetos
         </Link>
 
-        <Button className="bg-white text-black font-bold" size="sm">
-          Portfólio
-        </Button>
+        <Link href="/#projetos">
+          <Button className="bg-white text-black font-bold" size="sm">
+            Portfólio
+          </Button>
+        </Link>
       </div>
 
       <Sheet>
