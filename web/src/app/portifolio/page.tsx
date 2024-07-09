@@ -42,14 +42,13 @@ async function fetchEvents(): Promise<EventsProps[]> {
 
   const products = await response.json()
 
-  return products
+  return products.data
 }
 async function fetchVideos(): Promise<VideosProps[]> {
   const response = await api(`/videos?populate=*`, options)
 
   const products = await response.json()
-
-  return products
+  return products.data
 }
 export default async function Portifolio() {
   const events = await fetchEvents()
