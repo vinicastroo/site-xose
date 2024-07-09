@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Notable } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-
 import './globals.css'
 
 const inter = Inter({

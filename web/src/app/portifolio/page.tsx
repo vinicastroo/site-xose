@@ -3,6 +3,7 @@ import { Header } from '@/components/header'
 import { Events } from './events'
 import { Footer } from '@/components/footer'
 import { Videos } from './videos'
+import { api } from '@/services/api'
 
 export interface PhotoData {
   id: number
@@ -33,49 +34,26 @@ const options = {
   headers: {
     Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
   },
-  next: { revalidate: 10 },
-}
-async function fetchEvents() {
-  try {
-    const res = await fetch(
-      `${process.env.BASE_API_URL}/api/events?populate=*`,
-      options,
-    )
-    const response = await res.json()
-
-    if (!response) {
-      return []
-    }
-
-    return response
-  } catch (err) {
-    console.error(err)
-  }
-}
-async function fetchVideos() {
-  try {
-    const res = await fetch(
-      `${process.env.BASE_API_URL}/api/videos?populate=*`,
-      options,
-    )
-    const response = await res.json()
-
-    if (!response) {
-      return []
-    }
-
-    return response
-  } catch (err) {
-    console.error(err)
-  }
+  next: { revalidate: 60 },
 }
 
+async function fetchEvents(): Promise<EventsProps[]> {
+  const response = await api(`/events?populate=*`, options)
+
+  const products = await response.json()
+
+  return products
+}
+async function fetchVideos(): Promise<VideosProps[]> {
+  const response = await api(`/videos?populate=*`, options)
+
+  const products = await response.json()
+
+  return products
+}
 export default async function Portifolio() {
-  const responseEvents = await fetchEvents()
-  const responseVideos = await fetchVideos()
-
-  const events: EventsProps[] = responseEvents ? responseEvents.data : []
-  const videos: VideosProps[] = responseEvents ? responseVideos.data : []
+  const events = await fetchEvents()
+  const videos = await fetchVideos()
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
