@@ -793,19 +793,25 @@ export interface ApiEventEvent extends Schema.CollectionType {
   info: {
     singularName: 'event';
     pluralName: 'events';
-    displayName: 'Event';
+    displayName: 'event';
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    title: Attribute.String;
+    titulo: Attribute.String;
     fotos: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    descricao: Attribute.Text;
+    thumb: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    descricao: Attribute.RichText;
+    videos: Attribute.Relation<
+      'api::event.event',
+      'oneToMany',
+      'api::video.video'
+    >;
+    slug: Attribute.UID & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::event.event',
       'oneToOne',
@@ -826,16 +832,22 @@ export interface ApiVideoVideo extends Schema.CollectionType {
   info: {
     singularName: 'video';
     pluralName: 'videos';
-    displayName: 'Video';
+    displayName: 'video';
+    description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
+    titulo: Attribute.String;
     url: Attribute.String;
+    event: Attribute.Relation<
+      'api::video.video',
+      'manyToOne',
+      'api::event.event'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::video.video',
       'oneToOne',

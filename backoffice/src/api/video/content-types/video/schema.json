@@ -4,15 +4,25 @@
   "info": {
     "singularName": "video",
     "pluralName": "videos",
-    "displayName": "Video"
+    "displayName": "video",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
+    "titulo": {
+      "type": "string"
+    },
     "url": {
       "type": "string"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "videos"
     }
   }
 }

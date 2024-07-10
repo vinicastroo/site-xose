@@ -4,15 +4,15 @@
   "info": {
     "singularName": "event",
     "pluralName": "events",
-    "displayName": "Event",
+    "displayName": "event",
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "titulo": {
       "type": "string"
     },
     "fotos": {
@@ -26,8 +26,29 @@
         "audios"
       ]
     },
+    "thumb": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "descricao": {
-      "type": "text"
+      "type": "richtext"
+    },
+    "videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::video.video",
+      "mappedBy": "event"
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
     }
   }
 }
