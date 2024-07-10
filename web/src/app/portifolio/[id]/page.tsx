@@ -1,7 +1,6 @@
 import { Header } from '@/components/header'
 import { api } from '@/services/api'
 import { redirect } from 'next/navigation'
-import { Videos } from '../videos'
 import { Footer } from '@/components/footer'
 import Fotos from './fotos'
 import Thumbnail from './thumb'
@@ -9,7 +8,7 @@ import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-// import { Videos } from '../videos'
+import { Videos } from '../videos'
 
 interface EventProps {
   params: {
@@ -95,7 +94,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const response = await api('/events?populate[0]=thumb')
+  const response = await api('/events?fields[0]=id')
   const products = await response.json()
 
   return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
