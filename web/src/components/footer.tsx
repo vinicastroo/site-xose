@@ -1,4 +1,10 @@
-import { AtSign, Phone } from 'lucide-react'
+import {
+  AtSign,
+  Instagram,
+  LinkedinIcon,
+  Phone,
+  YoutubeIcon,
+} from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 export function Footer() {
@@ -54,13 +60,7 @@ export function Footer() {
               href="https://www.instagram.com/gui_schulze/"
               className="flex items-center gap-2 group ease-out "
             >
-              <Image
-                src="./instagram.svg"
-                width={20}
-                height={20}
-                alt="logo"
-                className="group-hover:opacity-80"
-              />
+              <Instagram className="size-4" />
               <span className="font-semibold font-inter  text-zinc-950 group-hover:underline group-hover:opacity-80">
                 Instagram
               </span>
@@ -70,13 +70,7 @@ export function Footer() {
               href="https://www.youtube.com/@GuiSchulzee/videos"
               className="flex items-center gap-2 group"
             >
-              <Image
-                src="./youtube.svg"
-                width={20}
-                height={20}
-                alt="logo"
-                className="hover:opacity-80"
-              />
+              <YoutubeIcon className="size-4" />
               <span className="font-semibold font-inter text-zinc-950 group-hover:underline group-hover:opacity-80">
                 Youtube
               </span>
@@ -85,13 +79,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/guilherme-schulze-28a766103/"
               className="flex items-center gap-2 group"
             >
-              <Image
-                src="./linkedin.svg"
-                width={20}
-                height={20}
-                alt="logo"
-                className="hover:opacity-80"
-              />
+              <LinkedinIcon className="size-4" />
               <span className="font-semibold font-inter text-zinc-950 group-hover:underline group-hover:opacity-80">
                 Linkedin
               </span>

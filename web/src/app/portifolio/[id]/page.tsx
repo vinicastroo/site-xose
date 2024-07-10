@@ -7,6 +7,7 @@ import Fotos from './fotos'
 import Thumbnail from './thumb'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
 // import { Videos } from '../videos'
 
@@ -82,7 +83,28 @@ interface EventsProps {
   }
 }
 
-async function fetchEvents(id: string): Promise<EventsProps> {
+export async function generateMetadata({
+  params,
+}: EventProps): Promise<Metadata> {
+  console.log(params.id)
+  const event = await getEvent(params.id)
+
+  console.log(event)
+
+  return {
+    title: event.attributes.titulo,
+    description: event.attributes.descricao ?? '',
+  }
+}
+
+export async function generateStaticParams() {
+  const response = await api('/events?populate[0]=thumb')
+  const products = await response.json()
+
+  return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
+}
+
+async function getEvent(id: string): Promise<EventsProps> {
   const response = await api(`/events/${Number(id)}?populate=*`)
 
   const events = await response.json()
@@ -93,7 +115,7 @@ export default async function Event({ params }: EventProps) {
   const { id } = params
   if (!id) return redirect('/')
 
-  const event = await fetchEvents(id)
+  const event = await getEvent(id)
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
