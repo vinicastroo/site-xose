@@ -94,8 +94,6 @@ export default async function Event({ params }: EventProps) {
   if (!id) return redirect('/')
 
   const event = await fetchEvents(id)
-  const videos = event.attributes.videos.data
-  const fotos = event.attributes.fotos.data
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
@@ -113,37 +111,45 @@ export default async function Event({ params }: EventProps) {
             </Link>
           </div>
 
-          <Thumbnail thumb={event.attributes.thumb.data} />
+          {event && (
+            <>
+              <Thumbnail thumb={event.attributes.thumb.data} />
 
-          <div className="w-full flex flex-col p-4">
-            <h2 className="text-white font-title text-2xl lg:text-4xl my-4">
-              {event.attributes.titulo}
-            </h2>
+              <div className="w-full flex flex-col p-4">
+                <h2 className="text-white font-title text-2xl lg:text-4xl my-4">
+                  {event.attributes.titulo}
+                </h2>
 
-            <p
-              className="text-white lg:text-base"
-              dangerouslySetInnerHTML={{
-                __html: event.attributes.descricao ?? '',
-              }}
-            />
+                <p
+                  className="text-white lg:text-base"
+                  dangerouslySetInnerHTML={{
+                    __html: event.attributes.descricao ?? '',
+                  }}
+                />
 
-            {videos.length > 0 && (
-              <div className="my-5">
-                <h2 className="text-white font-title text-lg mb-4">Videos</h2>
-                <Videos videos={videos} />
+                {event.attributes.videos.data.length > 0 && (
+                  <div className="my-5">
+                    <h2 className="text-white font-title text-lg mb-4">
+                      Videos
+                    </h2>
+                    <Videos videos={event.attributes.videos.data} />
+                  </div>
+                )}
+
+                {event.attributes.fotos.data.length > 0 && (
+                  <div className="my-5">
+                    <h2 className="text-white font-title text-lg mb-4">
+                      Fotos
+                    </h2>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+                      <Fotos fotos={event.attributes.fotos.data} />
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-
-            {fotos.length > 0 && (
-              <div className="my-5">
-                <h2 className="text-white font-title text-lg mb-4">Fotos</h2>
-
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-                  <Fotos fotos={fotos} />
-                </div>
-              </div>
-            )}
-          </div>
+            </>
+          )}
         </div>
       </div>
 
