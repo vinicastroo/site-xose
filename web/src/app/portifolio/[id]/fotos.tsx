@@ -3,10 +3,7 @@
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import Image from 'next/image'
 import type { PhotoData } from './page'
-import useIsSmallScreen from '@/utils/useIsSmallScreen'
 export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
-  const isSmallScreen = useIsSmallScreen()
-
   if (fotos.length === 0) {
     return ''
   }
@@ -14,42 +11,20 @@ export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
   return (
     <PhotoProvider>
       {fotos.map((foto) => {
-        if (
-          !foto ||
-          !foto.attributes.formats.small.url ||
-          !foto.attributes.formats.large.url
-        ) {
+        console.log(foto)
+        if (!foto) {
           return ''
         }
 
         return (
-          <PhotoView
-            key={foto.id}
-            src={
-              isSmallScreen
-                ? foto.attributes.formats.small.url
-                : foto.attributes.formats.large.url
-            }
-          >
+          <PhotoView key={foto.id} src={foto.attributes.url}>
             <div className="w-full h-[300px] relative">
               <Image
-                src={
-                  isSmallScreen
-                    ? foto.attributes.formats.small.url
-                    : foto.attributes.formats.large.url
-                }
+                src={foto.attributes.url}
                 className="w-full object-cover rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
                 quality={100}
-                width={
-                  isSmallScreen
-                    ? foto.attributes.formats.small.width
-                    : foto.attributes.formats.large.width
-                }
-                height={
-                  isSmallScreen
-                    ? foto.attributes.formats.small.height
-                    : foto.attributes.formats.large.height
-                }
+                width={foto.attributes.width}
+                height={foto.attributes.height}
                 alt="thumbnail"
               />
             </div>

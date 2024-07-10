@@ -6,9 +6,9 @@ import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 // import type { Metadata } from 'next'
 
-// import { Videos } from '../videos'
+import { Videos } from '../videos'
 import api from '@/services/api'
-// import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 interface EventProps {
   params: {
@@ -82,23 +82,23 @@ interface EventsProps {
   }
 }
 
-// export async function generateMetadata({
-//   params,
-// }: EventProps): Promise<Metadata> {
-//   const event = await getEvent(params.id)
+export async function generateMetadata({
+  params,
+}: EventProps): Promise<Metadata> {
+  const event = await getEvent(params.id)
 
-//   return {
-//     title: event.attributes.titulo,
-//     description: event.attributes.descricao ?? '',
-//   }
-// }
+  return {
+    title: event.attributes.titulo,
+    description: event.attributes.descricao ?? '',
+  }
+}
 
-// export async function generateStaticParams() {
-//   const response = await api.get('/events?populate[0]=thumb')
-//   const products = await response.data
+export async function generateStaticParams() {
+  const response = await api.get('/events?populate[0]=thumb')
+  const products = await response.data
 
-//   return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
-// }
+  return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
+}
 
 async function getEvent(id: string): Promise<EventsProps> {
   const response = await api.get(`/events/${Number(id)}?populate=*`)
@@ -142,14 +142,14 @@ export default async function Event({ params }: EventProps) {
                   }}
                 />
 
-                {/* {event.attributes.videos.data.length > 0 && (
+                {event.attributes.videos.data.length > 0 && (
                   <div className="my-5">
                     <h2 className="text-white font-title text-lg mb-4">
                       Videos
                     </h2>
                     <Videos videos={event.attributes.videos.data} />
                   </div>
-                )} */}
+                )}
 
                 {event.attributes.fotos.data.length > 0 && (
                   <div className="my-5">
