@@ -3,10 +3,10 @@ import { api } from '@/services/api'
 import { redirect } from 'next/navigation'
 import { Videos } from '../videos'
 import { Footer } from '@/components/footer'
-import Link from 'next/link'
 import Fotos from './fotos'
 import Thumbnail from './thumb'
 import { ArrowLeft } from 'lucide-react'
+import Link from 'next/link'
 
 // import { Videos } from '../videos'
 

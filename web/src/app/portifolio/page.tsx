@@ -53,16 +53,18 @@ export default async function Portifolio() {
                   {event.attributes.titulo}
                 </h2>
 
-                <Image
-                  src={event.attributes.thumb.data.attributes.url}
-                  className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
-                  sizes="400px"
-                  quality={100}
-                  width={event.attributes.thumb.data.attributes.width}
-                  height={event.attributes.thumb.data.attributes.height}
-                  // fill
-                  alt="thumbnail"
-                />
+                {event.attributes.thumb.data.attributes.url && (
+                  <Image
+                    src={event.attributes.thumb.data.attributes.url}
+                    className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
+                    sizes="400px"
+                    quality={100}
+                    width={event.attributes.thumb.data.attributes.width}
+                    height={event.attributes.thumb.data.attributes.height}
+                    // fill
+                    alt="thumbnail"
+                  />
+                )}
               </Link>
             ))}
           </div>
