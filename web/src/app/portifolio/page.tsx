@@ -1,4 +1,3 @@
-'use server'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { api } from '@/services/api'
@@ -32,6 +31,8 @@ async function fetchEvents(): Promise<EventsProps[]> {
   return products.data
 }
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 export default async function Portifolio() {
   const events = await fetchEvents()
 
@@ -43,20 +44,20 @@ export default async function Portifolio() {
         <div className="mt-20 w-full h-auto m-auto p-5 py-5 flex flex-col">
           <h1 className="text-xl font-title mb-5 text-white">Eventos</h1>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {events.map((event) => (
               <Link
                 key={event.attributes.slug}
-                className="h-96 relative"
+                className="h-96 relative group cursor-pointer"
                 href={`/portifolio/${event.attributes.slug}`}
               >
-                <h2 className="text-xl font-bold text-white absolute bottom-0 left-0 p-5 w-full z-30 bg-foreground/50">
+                <h2 className="text-xl font-bold text-white absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex items-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5">
                   {event.attributes.titulo}
                 </h2>
 
                 <Image
                   src={event.attributes.thumb.data.attributes.url}
-                  className="h-96 w-full object-cover rounded-md gap-10 !m-0 !p-0  hover:opacity-80 cursor-pointer"
+                  className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
                   sizes="400px"
                   quality={100}
                   width={event.attributes.thumb.data.attributes.width}
