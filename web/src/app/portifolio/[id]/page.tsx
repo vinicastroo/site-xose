@@ -89,8 +89,6 @@ export async function generateMetadata({
   console.log(params.id)
   const event = await getEvent(params.id)
 
-  console.log(event)
-
   return {
     title: event.attributes.titulo,
     description: event.attributes.descricao ?? '',
