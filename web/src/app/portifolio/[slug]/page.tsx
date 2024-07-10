@@ -101,19 +101,6 @@ export default async function Event({ params }: EventProps) {
   const videos = event.attributes.videos.data
   const fotos = event.attributes.fotos.data
 
-  if (!event) {
-    return (
-      <div
-        className={`flex flex-col items-center justify-center h-screen bg-zinc-950`}
-      >
-        <h2 className="text-white">Página não encontrada</h2>
-        <Link href="/portifolio" className="underline text-white">
-          Voltar para a página principal.
-        </Link>
-      </div>
-    )
-  }
-
   return (
     <div className={`flex flex-col bg-zinc-950`}>
       <div className="flex flex-col max-w-screen mb-10">
