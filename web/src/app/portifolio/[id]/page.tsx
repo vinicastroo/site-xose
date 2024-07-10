@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { Videos } from '../videos'
 import api from '@/services/api'
 import type { Metadata } from 'next'
-
+import { unstable_noStore as noStore } from 'next/cache'
 interface EventProps {
   params: {
     id: string
@@ -108,6 +108,7 @@ async function getEvent(id: string): Promise<EventsProps> {
   return events.data
 }
 export default async function Event({ params }: EventProps) {
+  noStore()
   const event = await getEvent(params.id)
 
   return (
