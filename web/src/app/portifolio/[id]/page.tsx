@@ -5,9 +5,10 @@ import Fotos from './fotos'
 import Thumbnail from './thumb'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
-import type { Metadata } from 'next'
+// import type { Metadata } from 'next'
 
-import { Videos } from '../videos'
+// import { Videos } from '../videos'
+import { unstable_noStore as noStore } from 'next/cache'
 
 interface EventProps {
   params: {
@@ -80,25 +81,6 @@ interface EventsProps {
     }
   }
 }
-
-export async function generateMetadata({
-  params,
-}: EventProps): Promise<Metadata> {
-  const event = await getEvent(params.id)
-
-  return {
-    title: event.attributes.titulo,
-    description: event.attributes.descricao ?? '',
-  }
-}
-
-export async function generateStaticParams() {
-  const response = await api('/events?fields[0]=id').then((res) => res.json())
-  const products = response.data
-
-  return products.map((event: EventsProps) => ({ id: String(event.id) }))
-}
-
 async function getEvent(id: string): Promise<EventsProps> {
   const response = await api(`/events/${Number(id)}?populate=*`).then((res) =>
     res.json(),
@@ -109,10 +91,9 @@ async function getEvent(id: string): Promise<EventsProps> {
   return events
 }
 export default async function Event({ params }: EventProps) {
-  const { id } = params
-  // if (!id) return redirect('/')
+  noStore()
 
-  const event = await getEvent(id)
+  const event = await getEvent(params.id)
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
@@ -146,14 +127,14 @@ export default async function Event({ params }: EventProps) {
                   }}
                 />
 
-                {event.attributes.videos.data.length > 0 && (
+                {/* {event.attributes.videos.data.length > 0 && (
                   <div className="my-5">
                     <h2 className="text-white font-title text-lg mb-4">
                       Videos
                     </h2>
                     <Videos videos={event.attributes.videos.data} />
                   </div>
-                )}
+                )} */}
 
                 {event.attributes.fotos.data.length > 0 && (
                   <div className="my-5">
