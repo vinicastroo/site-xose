@@ -12,20 +12,19 @@ export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
   return (
     <PhotoProvider>
       {fotos.map((foto) => {
-        console.log(foto)
         if (!foto) {
           return ''
         }
 
         return (
           <PhotoView key={foto.id} src={foto.attributes.url}>
-            <div className="w-full h-[300px] relative">
+            <div className="w-full h-[250px] relative">
               <Image
                 src={foto.attributes.url}
-                className="w-full object-cover rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
+                className="h-[250px] w-full object-cover rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
                 quality={100}
-                width={foto.attributes.width}
-                height={foto.attributes.height}
+                sizes="250px"
+                fill
                 alt="thumbnail"
               />
             </div>

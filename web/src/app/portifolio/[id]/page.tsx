@@ -136,12 +136,9 @@ export default async function Event({ params }: EventProps) {
                   {event.attributes.titulo}
                 </h2>
 
-                <p
-                  className="text-white lg:text-base"
-                  dangerouslySetInnerHTML={{
-                    __html: event.attributes.descricao ?? '',
-                  }}
-                />
+                <p className="truncate text-white text-wrap">
+                  {event.attributes.descricao}
+                </p>
 
                 {event.attributes.videos.data.length > 0 && (
                   <div className="my-5">

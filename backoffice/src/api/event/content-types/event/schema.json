@@ -37,9 +37,6 @@
         "audios"
       ]
     },
-    "descricao": {
-      "type": "richtext"
-    },
     "videos": {
       "type": "relation",
       "relation": "oneToMany",
@@ -49,6 +46,9 @@
     "slug": {
       "type": "uid",
       "required": true
+    },
+    "descricao": {
+      "type": "text"
     }
   }
 }

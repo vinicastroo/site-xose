@@ -803,13 +803,13 @@ export interface ApiEventEvent extends Schema.CollectionType {
     titulo: Attribute.String;
     fotos: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     thumb: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    descricao: Attribute.RichText;
     videos: Attribute.Relation<
       'api::event.event',
       'oneToMany',
       'api::video.video'
     >;
     slug: Attribute.UID & Attribute.Required;
+    descricao: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
