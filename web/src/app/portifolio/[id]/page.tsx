@@ -86,7 +86,6 @@ interface EventsProps {
 export async function generateMetadata({
   params,
 }: EventProps): Promise<Metadata> {
-  console.log(params.id)
   const event = await getEvent(params.id)
 
   return {

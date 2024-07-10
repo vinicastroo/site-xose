@@ -7,6 +7,10 @@ import useIsSmallScreen from '@/utils/useIsSmallScreen'
 export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
   const isSmallScreen = useIsSmallScreen()
 
+  if (fotos.length === 0) {
+    return ''
+  }
+
   return (
     <PhotoProvider>
       {fotos.map((foto) => {

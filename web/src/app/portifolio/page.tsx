@@ -53,7 +53,7 @@ export default async function Portifolio() {
                   {event.attributes.titulo}
                 </h2>
 
-                {event.attributes.thumb.data.attributes.url && (
+                {event && event.attributes.thumb.data.attributes.url && (
                   <Image
                     src={event.attributes.thumb.data.attributes.url}
                     className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
