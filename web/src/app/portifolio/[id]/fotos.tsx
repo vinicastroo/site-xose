@@ -15,7 +15,8 @@ export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
     <PhotoProvider>
       {fotos.map((foto) => {
         if (
-          !foto.attributes.formats.small.url &&
+          !foto ||
+          !foto.attributes.formats.small.url ||
           !foto.attributes.formats.large.url
         ) {
           return ''
