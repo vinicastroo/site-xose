@@ -1,8 +1,8 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { api } from '@/services/api'
 import Image from 'next/image'
 import Link from 'next/link'
+import api from '@/services/api'
 
 export interface ThumbProps {
   data: {
@@ -25,10 +25,10 @@ export interface EventsProps {
 }
 
 async function fetchEvents(): Promise<EventsProps[]> {
-  const response = await api(`/events?populate[0]=thumb`)
+  const response = await api.get(`/events?populate[0]=thumb`)
 
-  const products = await response.json()
-  return products.data
+  const events = response.data
+  return events.data
 }
 
 export default async function Portifolio() {
@@ -47,7 +47,7 @@ export default async function Portifolio() {
               <Link
                 key={event.id}
                 className="h-96 relative group cursor-pointer"
-                href={`/event/${event.id}`}
+                href={`/portifolio/${event.id}`}
               >
                 <h2 className="text-2xl uppercase font-bold text-white absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex items-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5">
                   {event.attributes.titulo}

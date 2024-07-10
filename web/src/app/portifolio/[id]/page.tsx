@@ -1,5 +1,4 @@
 import { Header } from '@/components/header'
-import { api } from '@/services/api'
 import { Footer } from '@/components/footer'
 import Fotos from './fotos'
 import Thumbnail from './thumb'
@@ -8,7 +7,8 @@ import Link from 'next/link'
 // import type { Metadata } from 'next'
 
 // import { Videos } from '../videos'
-import { unstable_noStore as noStore } from 'next/cache'
+import api from '@/services/api'
+import type { Metadata } from 'next'
 
 interface EventProps {
   params: {
@@ -81,18 +81,33 @@ interface EventsProps {
     }
   }
 }
+
+export async function generateMetadata({
+  params,
+}: EventProps): Promise<Metadata> {
+  const event = await getEvent(params.id)
+
+  return {
+    title: event.attributes.titulo,
+    description: event.attributes.descricao ?? '',
+  }
+}
+
+export async function generateStaticParams() {
+  const response = await api.get('/events?populate[0]=thumb')
+  const products = await response.data
+
+  return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
+}
+
 async function getEvent(id: string): Promise<EventsProps> {
-  const response = await api(`/events/${Number(id)}?populate=*`).then((res) =>
-    res.json(),
-  )
+  const response = await api.get(`/events/${Number(id)}?populate=*`)
 
   const events = response.data
 
-  return events
+  return events.data
 }
 export default async function Event({ params }: EventProps) {
-  noStore()
-
   const event = await getEvent(params.id)
 
   return (

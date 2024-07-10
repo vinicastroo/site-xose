@@ -1,15 +1,20 @@
 import { env } from '@/env'
+import axios from 'axios'
+// import { getSession } from 'next-auth/react'
 
-const options = {
-  headers: {
-    Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
-  },
-  next: { revalidate: 60 },
-}
-export function api(path: string, init?: RequestInit) {
-  const baseUrl = env.BASE_API_URL
-  const apiPrefix = '/api'
-  const url = new URL(apiPrefix.concat(path), baseUrl)
+const baseURL = env.BASE_API_URL + '/api'
 
-  return fetch(url, { ...options, ...init })
+const ApiClient = () => {
+  const defaultOptions = {
+    baseURL,
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
+    },
+  }
+
+  const instance = axios.create(defaultOptions)
+
+  return instance
 }
+
+export default ApiClient()
