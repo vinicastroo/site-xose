@@ -49,7 +49,7 @@ export default async function Portifolio() {
                 className="h-96 relative group cursor-pointer"
                 href={`/portifolio/${event.id}`}
               >
-                <h2 className="text-xl font-bold text-white absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex items-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5">
+                <h2 className="text-2xl uppercase font-bold text-white absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex items-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5">
                   {event.attributes.titulo}
                 </h2>
 

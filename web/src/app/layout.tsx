@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Notable } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
+import 'react-photo-view/dist/react-photo-view.css'
 
 const inter = Inter({
   subsets: ['latin'],

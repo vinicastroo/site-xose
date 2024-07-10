@@ -1,5 +1,5 @@
 'use client'
-import 'react-photo-view/dist/react-photo-view.css'
+
 import ReactPlayer from 'react-player/lazy'
 
 export interface VideosProps {

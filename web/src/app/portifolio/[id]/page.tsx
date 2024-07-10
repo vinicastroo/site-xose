@@ -1,6 +1,5 @@
 import { Header } from '@/components/header'
 import { api } from '@/services/api'
-import { redirect } from 'next/navigation'
 import { Footer } from '@/components/footer'
 import Fotos from './fotos'
 import Thumbnail from './thumb'
@@ -94,22 +93,24 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  const response = await api('/events?fields[0]=id')
-  const products = await response.json()
+  const response = await api('/events?fields[0]=id').then((res) => res.json())
+  const products = response.data
 
-  return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
+  return products.map((event: EventsProps) => ({ id: String(event.id) }))
 }
 
 async function getEvent(id: string): Promise<EventsProps> {
-  const response = await api(`/events/${Number(id)}?populate=*`)
+  const response = await api(`/events/${Number(id)}?populate=*`).then((res) =>
+    res.json(),
+  )
 
-  const events = await response.json()
+  const events = response.data
 
-  return events.data
+  return events
 }
 export default async function Event({ params }: EventProps) {
   const { id } = params
-  if (!id) return redirect('/')
+  // if (!id) return redirect('/')
 
   const event = await getEvent(id)
 
