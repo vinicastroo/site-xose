@@ -3,6 +3,7 @@
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import Image from 'next/image'
 import type { PhotoData } from './page'
+
 export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
   if (fotos.length === 0) {
     return ''

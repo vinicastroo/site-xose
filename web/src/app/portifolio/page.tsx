@@ -3,7 +3,7 @@ import { Footer } from '@/components/footer'
 import Image from 'next/image'
 import Link from 'next/link'
 import api from '@/services/api'
-
+import { unstable_noStore as noStore } from 'next/cache'
 export interface ThumbProps {
   data: {
     id: number
@@ -32,6 +32,7 @@ async function fetchEvents(): Promise<EventsProps[]> {
 }
 
 export default async function Portifolio() {
+  noStore()
   const events = await fetchEvents()
 
   return (
