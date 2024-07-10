@@ -25,7 +25,7 @@ export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
                   ? foto.attributes.formats.small.url
                   : foto.attributes.formats.large.url
               }
-              className="w-full object-contain rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
+              className="w-full object-cover rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
               quality={100}
               width={
                 isSmallScreen

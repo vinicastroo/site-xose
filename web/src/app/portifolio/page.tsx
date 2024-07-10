@@ -45,9 +45,9 @@ export default async function Portifolio() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {events.map((event) => (
               <Link
-                key={event.attributes.slug}
+                key={event.id}
                 className="h-96 relative group cursor-pointer"
-                href={`/portifolio/${event.attributes.slug}`}
+                href={`/portifolio/${event.id}`}
               >
                 <h2 className="text-xl font-bold text-white absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex items-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5">
                   {event.attributes.titulo}

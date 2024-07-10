@@ -12,7 +12,7 @@ import { ArrowLeft } from 'lucide-react'
 
 interface EventProps {
   params: {
-    slug: string
+    id: string
   }
 }
 
@@ -82,22 +82,18 @@ interface EventsProps {
   }
 }
 
-async function fetchEvents(slug: string): Promise<EventsProps> {
-  const response = await api(`/events?slug=${slug}&populate=*`)
+async function fetchEvents(id: string): Promise<EventsProps> {
+  const response = await api(`/events/${Number(id)}?populate=*`)
 
   const events = await response.json()
-
-  if (events.data[0]) {
-    return events.data[0]
-  }
 
   return events.data
 }
 export default async function Event({ params }: EventProps) {
-  const { slug } = params
-  if (!slug) return redirect('/')
+  const { id } = params
+  if (!id) return redirect('/')
 
-  const event = await fetchEvents(slug)
+  const event = await fetchEvents(id)
   const videos = event.attributes.videos.data
   const fotos = event.attributes.fotos.data
 

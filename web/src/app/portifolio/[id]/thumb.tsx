@@ -11,28 +11,16 @@ export default function Thumbnail({ thumb }: { thumb: ThumbProps }) {
     <div className="relative h-[250px] lg:h-[600px] lg:w-[1280px] rounded-md">
       <PhotoProvider>
         <PhotoView
-          src={
-            isSmallScreen
-              ? thumb.attributes.formats.small.url
-              : thumb.attributes.formats.large.url
-          }
+          src={isSmallScreen ? thumb.attributes.url : thumb.attributes.url}
         >
           <Image
-            src={
-              isSmallScreen
-                ? thumb.attributes.formats.small.url
-                : thumb.attributes.formats.large.url
-            }
+            src={isSmallScreen ? thumb.attributes.url : thumb.attributes.url}
             className="lg:h-[600px] lg:w-[1280px] object-contain rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
             width={
-              isSmallScreen
-                ? thumb.attributes.formats.small.width
-                : thumb.attributes.formats.large.width
+              isSmallScreen ? thumb.attributes.width : thumb.attributes.width
             }
             height={
-              isSmallScreen
-                ? thumb.attributes.formats.small.height
-                : thumb.attributes.formats.large.height
+              isSmallScreen ? thumb.attributes.height : thumb.attributes.height
             }
             quality={100}
             alt="thumbnail"
