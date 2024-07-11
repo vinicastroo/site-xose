@@ -1,10 +1,4 @@
-import {
-  AtSign,
-  Instagram,
-  LinkedinIcon,
-  Phone,
-  YoutubeIcon,
-} from 'lucide-react'
+import { AtSign } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 export function Footer() {
@@ -60,7 +54,7 @@ export function Footer() {
               href="https://www.instagram.com/gui_schulze/"
               className="flex items-center gap-2 group ease-out "
             >
-              <Instagram className="size-4" />
+              <Image src="./instagram.svg" width={20} height={20} alt="" />
               <span className="font-semibold font-inter  text-zinc-950 group-hover:underline group-hover:opacity-80">
                 Instagram
               </span>
@@ -70,7 +64,7 @@ export function Footer() {
               href="https://www.youtube.com/@GuiSchulzee/videos"
               className="flex items-center gap-2 group"
             >
-              <YoutubeIcon className="size-4" />
+              <Image src="./youtube.svg" width={20} height={20} alt="" />
               <span className="font-semibold font-inter text-zinc-950 group-hover:underline group-hover:opacity-80">
                 Youtube
               </span>
@@ -79,7 +73,7 @@ export function Footer() {
               href="https://www.linkedin.com/in/guilherme-schulze-28a766103/"
               className="flex items-center gap-2 group"
             >
-              <LinkedinIcon className="size-4" />
+              <Image src="./linkedin.svg" width={20} height={20} alt="" />
               <span className="font-semibold font-inter text-zinc-950 group-hover:underline group-hover:opacity-80">
                 Linkedin
               </span>
@@ -94,7 +88,7 @@ export function Footer() {
               href="https://api.whatsapp.com/send?phone=5547999377961&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
               className="flex items-center gap-2 group ease-out "
             >
-              <Phone className="size-5" />
+              <Image src="./whats.svg" width={20} height={20} alt="" />
               <span className="font-semibold font-inter text-zinc-950 group-hover:underline group-hover:opacity-80">
                 (47) 9 99377961
               </span>

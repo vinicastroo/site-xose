@@ -94,12 +94,14 @@ export function Header() {
             >
               Projetos
             </Link>
-            <Link
-              href="/portifolio"
-              className="flex font-inter text-sm lg:text-base font-bold"
-            >
-              Portfólio
-            </Link>
+            <Button asChild>
+              <Link
+                href="/portifolio"
+                className="flex font-inter text-sm lg:text-base font-bold"
+              >
+                Portfólio
+              </Link>
+            </Button>
           </div>
         </SheetContent>
       </Sheet>
