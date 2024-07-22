@@ -19,7 +19,7 @@ export function Services() {
 
         <div className="flex flex-col mt-10 gap-10">
           <div
-            className={`h-52 lg:h-72 border flex items-end relative rounded-md bg-gradient-to-b from-zinc-950/90 to-zinc-950/80`}
+            className={`h-52 lg:h-72 flex items-end relative rounded-md bg-gradient-to-l from-zinc-950/10 to-zinc-950/10`}
           >
             <motion.div
               className="w-full h-full"
@@ -47,7 +47,7 @@ export function Services() {
           </div>
 
           <div
-            className={`h-52 lg:h-72 border flex items-end relative rounded-md bg-gradient-to-b from-zinc-950/90 to-zinc-950/80`}
+            className={`h-52 lg:h-72 border flex items-end relative rounded-md bg-gradient-to-l from-zinc-950/10 to-zinc-950/10`}
           >
             <motion.div
               className="w-full h-full"
