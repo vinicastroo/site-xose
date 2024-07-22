@@ -69,6 +69,7 @@ export function Services() {
                 height={288}
                 quality={100}
                 alt=""
+                unoptimized={true}
                 className="w-full h-full object-cover rounded-md"
               />
             </motion.div>
