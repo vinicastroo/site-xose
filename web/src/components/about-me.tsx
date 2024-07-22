@@ -25,7 +25,7 @@ export function AboutMe() {
                 className="h-[250px] w-[166px] lg:h-[350px] lg:w-[266px] absolute top-0 m-auto"
                 initial={{ x: 0, rotate: 0 }}
                 whileInView={{
-                  x: isSmallScreen ? -80 : -200,
+                  x: isSmallScreen ? -100 : -200,
                   y: isSmallScreen ? 30 : 40,
                   rotate: isSmallScreen ? -10 : -15,
                 }}
@@ -45,7 +45,7 @@ export function AboutMe() {
                 className="h-[250px] w-[166px] lg:h-[350px] lg:w-[266px] absolute top-0"
                 initial={{ x: 0, rotate: 0, y: 0 }}
                 whileInView={{
-                  x: isSmallScreen ? 80 : 200,
+                  x: isSmallScreen ? 100 : 200,
                   y: isSmallScreen ? 30 : 40,
                   rotate: isSmallScreen ? 10 : 15,
                 }}
@@ -63,7 +63,10 @@ export function AboutMe() {
 
               <motion.div
                 className="h-[250px] w-[166px] lg:h-[350px] lg:w-[266px] absolute top-0"
-                initial={{ x: 0, y: isSmallScreen ? 15 : 0, rotate: 0 }}
+                initial={{ x: 0, y: 0, rotate: 0 }}
+                whileInView={{
+                  y: isSmallScreen ? 15 : 0,
+                }}
               >
                 <Image
                   src={sobre}
