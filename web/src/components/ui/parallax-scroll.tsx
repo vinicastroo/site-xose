@@ -33,7 +33,7 @@ export const ParallaxScroll = ({
               animate={{
                 y: [0, -2950, 0],
               }}
-              transition={{ repeat: Infinity, duration: 60, ease: 'linear' }}
+              transition={{ repeat: Infinity, duration: 60 }}
               className="relative h-[400px] w-[400px]"
             >
               <Image
