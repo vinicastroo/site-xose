@@ -13,7 +13,7 @@ export default async function Home() {
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>
-      <div className="flex flex-col h-screen w-full max-w-none lg:max-w-screen bg-hero object-cover bg-cover bg-no-repeat">
+      <div className="flex flex-col h-screen w-full max-w-none lg:max-w-screen bg-heroMobile lg:bg-hero bg-center object-cover bg-cover bg-no-repeat">
         <Header />
 
         <div className="flex-1 w-full flex items-center justify-center flex-col">

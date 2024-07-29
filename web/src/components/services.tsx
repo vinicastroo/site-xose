@@ -1,6 +1,6 @@
 'use client'
 import driftGif from '../../public/Reels-drift-slow.gif'
-import bannerFoto from '../../public/banner-fotografia.webp'
+import bannerFoto from '../../public/banner-foto.png'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 

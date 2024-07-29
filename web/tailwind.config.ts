@@ -26,7 +26,8 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        hero: "url('/banner-teste.jpg')",
+        hero: "url('/banner-principal.jpg')",
+        heroMobile: "url('/banner-principal-mobile.png')",
       },
       colors: {
         border: 'hsl(var(--border))',
