@@ -22,6 +22,7 @@ module.exports = [
             'blob:',
             'market-assets.strapi.io',
             'guilherme-schulze-files.s3.us-east-1.amazonaws.com',
+            // 'd3gxnhlpvojsk.cloudfront.net',
           ],
           'media-src': [
             "'self'",
@@ -29,6 +30,7 @@ module.exports = [
             'blob:',
             'market-assets.strapi.io',
             'guilherme-schulze-files.s3.us-east-1.amazonaws.com',
+            // 'd3gxnhlpvojsk.cloudfront.net',
           ],
           upgradeInsecureRequests: null,
         },
