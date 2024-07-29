@@ -9,6 +9,7 @@ export interface ThumbProps {
     id: number
     attributes: {
       url: string
+      cdn_url: string
       width: number
       height: number
     }
@@ -28,13 +29,43 @@ async function fetchEvents(): Promise<EventsProps[]> {
   const response = await api.get(`/events?populate[0]=thumb`)
 
   const events = response.data
-  return events.data
+
+  const formattedEvent = events.data.map((event: EventsProps) => {
+    const url = event.attributes.thumb.data.attributes.url
+
+    // Nova URL base
+    const newBaseUrl = 'https://d3gxnhlpvojsk.cloudfront.net/'
+
+    // Extraindo o nome do arquivo da URL original
+    const fileName = url.split('/').pop()
+
+    // Construindo a nova URL
+    const newUrl = newBaseUrl + fileName
+    return {
+      ...event,
+      attributes: {
+        ...event.attributes,
+        thumb: {
+          ...event.attributes.thumb,
+          data: {
+            ...event.attributes.thumb.data,
+            attributes: {
+              ...event.attributes.thumb.data.attributes,
+              cdn_url: newUrl,
+            },
+          },
+        },
+      },
+    }
+  })
+
+  return formattedEvent
 }
 
 export default async function Portifolio() {
   noStore()
   const events = await fetchEvents()
-
+  console.log(events[0].attributes.thumb.data.attributes)
   return (
     <div className={`flex flex-col bg-zinc-950`}>
       <div className="flex flex-col min-h-screen max-w-screen mb-10">
@@ -54,9 +85,9 @@ export default async function Portifolio() {
                   {event.attributes.titulo}
                 </h2>
 
-                {event && event.attributes.thumb.data.attributes.url && (
+                {event && event.attributes.thumb.data.attributes.cdn_url && (
                   <Image
-                    src={event.attributes.thumb.data.attributes.url}
+                    src={event.attributes.thumb.data.attributes.cdn_url}
                     className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
                     sizes="400px"
                     quality={100}

@@ -22,6 +22,7 @@ export interface PhotoData {
     width: number
     height: number
     url: string
+    cdn_url: string
     formats: {
       large: {
         width: number
@@ -41,6 +42,7 @@ export interface ThumbProps {
   id: number
   attributes: {
     url: string
+    cdn_url: string
     width: number
     height: number
     formats: {
@@ -103,9 +105,52 @@ export async function generateStaticParams() {
 async function getEvent(id: string): Promise<EventsProps> {
   const response = await api.get(`/events/${Number(id)}?populate=*`)
 
-  const events = response.data
+  const event: EventsProps = response.data.data
 
-  return events.data
+  const url = event.attributes.thumb.data.attributes.url
+
+  // Nova URL base
+  const newBaseUrl = 'https://d3gxnhlpvojsk.cloudfront.net/'
+
+  // Extraindo o nome do arquivo da URL original
+  const fileName = url.split('/').pop()
+
+  // Construindo a nova URL
+  const newUrl = newBaseUrl + fileName
+
+  const formattedFotos = event.attributes.fotos.data.map((photo: PhotoData) => {
+    const urlFoto = photo.attributes.url
+    // Extraindo o nome do arquivo da URL original
+    const fileNamePhoto = urlFoto.split('/').pop()
+    const newUrlPhoto = newBaseUrl + fileNamePhoto
+
+    return {
+      ...photo,
+      attributes: { ...photo.attributes, cdn_url: newUrlPhoto },
+    }
+  })
+
+  console.log(formattedFotos)
+  const formattedEvent = {
+    ...event,
+    attributes: {
+      ...event.attributes,
+      fotos: { data: formattedFotos },
+      thumb: {
+        ...event.attributes.thumb,
+        data: {
+          ...event.attributes.thumb.data,
+          attributes: {
+            ...event.attributes.thumb.data.attributes,
+            cdn_url: newUrl,
+          },
+        },
+      },
+    },
+  }
+  // const formattedEvents = events.data.map((event: EventsProps) => {
+
+  return formattedEvent
 }
 export default async function Event({ params }: EventProps) {
   noStore()

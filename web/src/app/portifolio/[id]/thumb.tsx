@@ -11,9 +11,9 @@ export default function Thumbnail({ thumb }: { thumb: ThumbProps }) {
   return (
     <div className="relative h-[250px] lg:h-[600px] lg:w-[1280px] rounded-md">
       <PhotoProvider>
-        <PhotoView src={thumb.attributes.url}>
+        <PhotoView src={thumb.attributes.cdn_url}>
           <Image
-            src={thumb.attributes.url}
+            src={thumb.attributes.cdn_url}
             className="lg:h-[600px] lg:w-[1280px] object-contain rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
             width={thumb.attributes.width}
             height={thumb.attributes.height}

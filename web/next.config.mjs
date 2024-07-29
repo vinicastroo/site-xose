@@ -13,6 +13,11 @@ const nextConfig = {
         hostname: 'guilherme-schulze-files.s3.us-east-1.amazonaws.com',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'd3gxnhlpvojsk.cloudfront.net',
+        pathname: '**',
+      },
     ],
   },
 }

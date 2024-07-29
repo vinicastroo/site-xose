@@ -17,10 +17,10 @@ export default function Fotos({ fotos }: { fotos: PhotoData[] }) {
         }
 
         return (
-          <PhotoView key={foto.id} src={foto.attributes.url}>
+          <PhotoView key={foto.id} src={foto.attributes.cdn_url}>
             <div className="w-full h-[250px] relative">
               <Image
-                src={foto.attributes.url}
+                src={foto.attributes.cdn_url}
                 className="h-[250px] w-full object-cover rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
                 quality={100}
                 sizes="250px"
