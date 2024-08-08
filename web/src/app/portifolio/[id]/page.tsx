@@ -117,20 +117,22 @@ async function getEvent(id: string): Promise<EventsProps> {
 
   // Construindo a nova URL
   const newUrl = newBaseUrl + fileName
+  let formattedFotos: PhotoData[] = []
 
-  const formattedFotos = event.attributes.fotos.data.map((photo: PhotoData) => {
-    const urlFoto = photo.attributes.url
-    // Extraindo o nome do arquivo da URL original
-    const fileNamePhoto = urlFoto.split('/').pop()
-    const newUrlPhoto = newBaseUrl + fileNamePhoto
+  if (event.attributes.fotos.data.length > 0) {
+    formattedFotos = event.attributes.fotos.data.map((photo: PhotoData) => {
+      const urlFoto = photo.attributes.url
+      // Extraindo o nome do arquivo da URL original
+      const fileNamePhoto = urlFoto.split('/').pop()
+      const newUrlPhoto = newBaseUrl + fileNamePhoto
 
-    return {
-      ...photo,
-      attributes: { ...photo.attributes, cdn_url: newUrlPhoto },
-    }
-  })
+      return {
+        ...photo,
+        attributes: { ...photo.attributes, cdn_url: newUrlPhoto },
+      }
+    })
+  }
 
-  console.log(formattedFotos)
   const formattedEvent = {
     ...event,
     attributes: {

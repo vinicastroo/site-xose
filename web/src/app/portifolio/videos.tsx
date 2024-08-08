@@ -10,7 +10,7 @@ export interface VideosProps {
 }
 export function Videos({ videos }: { videos: VideosProps[] }) {
   return (
-    <div className="flex divide-y space-y-4 gap-4 divide-gray-200">
+    <div className="flex wrap divide-y space-y-4 gap-4 divide-gray-200">
       {videos.length > 0 ? (
         videos.map((video) => {
           if (!video.attributes.url) {

@@ -65,7 +65,7 @@ async function fetchEvents(): Promise<EventsProps[]> {
 export default async function Portifolio() {
   noStore()
   const events = await fetchEvents()
-  console.log(events[0].attributes.thumb.data.attributes)
+
   return (
     <div className={`flex flex-col bg-zinc-950`}>
       <div className="flex flex-col min-h-screen max-w-screen mb-10">
