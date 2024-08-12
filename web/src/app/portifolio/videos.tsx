@@ -10,7 +10,7 @@ export interface VideosProps {
 }
 export function Videos({ videos }: { videos: VideosProps[] }) {
   return (
-    <div className="flex wrap divide-y space-y-4 gap-4 divide-gray-200">
+    <div className="flex flex-wrap gap-4">
       {videos.length > 0 ? (
         videos.map((video) => {
           if (!video.attributes.url) {
@@ -18,12 +18,12 @@ export function Videos({ videos }: { videos: VideosProps[] }) {
           }
 
           return (
-            <div key={video.id} className="text-white pt-4">
+            <div key={video.id} className="text-white">
               <ReactPlayer
                 url={video.attributes.url}
                 controls={true}
                 width={360}
-                height={200}
+                height={250}
               />
             </div>
           )

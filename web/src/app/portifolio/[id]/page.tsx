@@ -119,7 +119,7 @@ async function getEvent(id: string): Promise<EventsProps> {
   const newUrl = newBaseUrl + fileName
   let formattedFotos: PhotoData[] = []
 
-  if (event.attributes.fotos.data.length > 0) {
+  if (event.attributes.fotos.data && event.attributes.fotos.data.length > 0) {
     formattedFotos = event.attributes.fotos.data.map((photo: PhotoData) => {
       const urlFoto = photo.attributes.url
       // Extraindo o nome do arquivo da URL original
@@ -188,7 +188,7 @@ export default async function Event({ params }: EventProps) {
                 </p>
 
                 {event.attributes.videos.data.length > 0 && (
-                  <div className="my-5">
+                  <div className="my-5 flex flex-col">
                     <h2 className="text-white font-title text-lg mb-4">
                       Videos
                     </h2>
