@@ -55,7 +55,10 @@ export function Header() {
         </Link>
 
         <Link href="/portifolio">
-          <Button className="bg-white text-black font-bold" size="sm">
+          <Button
+            className="bg-white text-black font-bold hover:bg-yellow-400 "
+            size="sm"
+          >
             Portfólio
           </Button>
         </Link>
