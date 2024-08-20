@@ -26,7 +26,7 @@ export interface EventsProps {
 }
 
 async function fetchEvents(): Promise<EventsProps[]> {
-  const response = await api.get(`/events?populate[0]=thumb`)
+  const response = await api.get(`/events?populate[0]=thumb&sort=order`)
 
   const events = response.data
 

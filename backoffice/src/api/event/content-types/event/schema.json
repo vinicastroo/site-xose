@@ -49,6 +49,9 @@
     },
     "descricao": {
       "type": "text"
+    },
+    "order": {
+      "type": "biginteger"
     }
   }
 }
