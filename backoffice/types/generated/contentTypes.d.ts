@@ -810,7 +810,7 @@ export interface ApiEventEvent extends Schema.CollectionType {
     >;
     slug: Attribute.UID & Attribute.Required;
     descricao: Attribute.Text;
-    order: Attribute.BigInteger;
+    order: Attribute.BigInteger & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
