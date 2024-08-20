@@ -1,6 +1,8 @@
 'use client'
 import Image from 'next/image'
-import sobre from '../../public/sobre-mim-card.png'
+import sobre3 from '../../public/sobre-mim-card-veneza.jpg'
+import sobre1 from '../../public/sobre-mim-card-carro.jpg'
+import sobre2 from '../../public/sobre-mim-card-social.jpg'
 import { motion } from 'framer-motion'
 import useIsSmallScreen from '@/utils/useIsSmallScreen'
 export function AboutMe() {
@@ -32,7 +34,7 @@ export function AboutMe() {
                 transition={{ duration: 1 }}
               >
                 <Image
-                  src={sobre}
+                  src={sobre2}
                   width={266}
                   height={350}
                   quality={100}
@@ -52,7 +54,7 @@ export function AboutMe() {
                 transition={{ duration: 1 }}
               >
                 <Image
-                  src={sobre}
+                  src={sobre1}
                   width={266}
                   height={350}
                   quality={100}
@@ -69,7 +71,7 @@ export function AboutMe() {
                 }}
               >
                 <Image
-                  src={sobre}
+                  src={sobre3}
                   width={266}
                   height={350}
                   quality={100}
