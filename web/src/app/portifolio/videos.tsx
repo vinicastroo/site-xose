@@ -10,7 +10,7 @@ export interface VideosProps {
 }
 export function Videos({ videos }: { videos: VideosProps[] }) {
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
       {videos.length > 0 ? (
         videos.map((video) => {
           if (!video.attributes.url) {
