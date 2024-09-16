@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import sobre3 from '../../public/sobre-mim-card-veneza.jpg'
+import sobre3 from '../../public/sobre-mim-card-studio.png'
 import sobre1 from '../../public/sobre-mim-card-carro.jpg'
 import sobre2 from '../../public/sobre-mim-card-social.jpg'
 import { motion } from 'framer-motion'
