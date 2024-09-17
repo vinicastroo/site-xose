@@ -20,6 +20,15 @@ export const metadata: Metadata = {
   title: 'Guilherme Schulze - Fotógrafo e Videomaker em Rio do Sul',
   description:
     'Guilherme Schulze é fotógrafo e videomaker em Rio do Sul, especializado em capturar momentos únicos e memoráveis desde 2018. Com formação em Produção Multimídia e paixão por cinema, oferece serviços personalizados de fotografia e produção de vídeo para eventos, ensaios e projetos comerciais. Transforme suas memórias.',
+  keywords: [
+    'Foto Rio do Sul',
+    'Fotógrafo Rio do Sul',
+    'Fotografia Rio do Sul',
+    'Filmagem Rio do Sul',
+    'Videomaker Rio do Sul',
+    'Video maker Rio do Sul',
+    'Videos Rio do Sul',
+  ],
 }
 
 export default function RootLayout({

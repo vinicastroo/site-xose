@@ -11,13 +11,11 @@ interface Metadata {
 async function getAllProjects() {
   const response = await api.get(`/events?populate[0]=thumb&sort=order`)
 
-  const events: EventsProps[] = response.data
-  const formattedEvents: Metadata[] = events.map((event) => {
+  const events = response.data
+  const formattedEvents: Metadata[] = events.data.map((event: EventsProps) => {
     return {
       url: `${process.env.BASE_API_URL}/portifolio/${event.id}`,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
     }
   })
 
