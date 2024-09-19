@@ -100,7 +100,7 @@ export async function generateMetadata({
     openGraph: {
       title: event.attributes.titulo,
       description: event.attributes.descricao ?? '',
-      images: event.attributes.thumb.data.attributes.cdn_url,
+      images: [event.attributes.thumb.data.attributes.cdn_url],
     },
   }
 }
