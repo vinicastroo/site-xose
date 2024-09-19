@@ -109,7 +109,9 @@ export async function generateStaticParams() {
   const response = await api.get('/events?populate[0]=thumb')
   const products = await response.data
 
-  return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
+  return products.data.map((event: EventsProps) => ({
+    slug: String(event.attributes.slug),
+  }))
 }
 
 async function getEvent(slug: string): Promise<EventsProps | undefined> {
