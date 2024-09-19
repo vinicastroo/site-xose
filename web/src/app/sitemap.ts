@@ -14,7 +14,7 @@ async function getAllProjects() {
   const events = response.data
   const formattedEvents: Metadata[] = events.data.map((event: EventsProps) => {
     return {
-      url: `${process.env.BASE_API_URL}/portifolio/${event.id}`,
+      url: `${process.env.BASE_API_URL}/portifolio/${event.attributes.slug}`,
       lastModified: new Date(),
     }
   })
@@ -28,14 +28,10 @@ export default async function sitemap() {
     {
       url: 'https://www.guilhermeschulze.com.br/',
       lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
     },
     {
       url: 'https://www.guilhermeschulze.com.br/portifolio',
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
     },
   ]
 

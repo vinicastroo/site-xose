@@ -12,7 +12,7 @@ import type { Metadata } from 'next'
 import { unstable_noStore as noStore } from 'next/cache'
 interface EventProps {
   params: {
-    id: string
+    slug: string
   }
 }
 
@@ -87,11 +87,21 @@ interface EventsProps {
 export async function generateMetadata({
   params,
 }: EventProps): Promise<Metadata> {
-  const event = await getEvent(params.id)
+  const event = await getEvent(params.slug)
+
+  if (!event) {
+    return {
+      title: 'Not found',
+      description: 'The page you are looking for does not exist.',
+    }
+  }
 
   return {
-    title: event.attributes.titulo,
-    description: event.attributes.descricao ?? '',
+    openGraph: {
+      title: event.attributes.titulo,
+      description: event.attributes.descricao ?? '',
+      images: event.attributes.thumb.data.attributes.cdn_url,
+    },
   }
 }
 
@@ -102,10 +112,17 @@ export async function generateStaticParams() {
   return products.data.map((event: EventsProps) => ({ id: String(event.id) }))
 }
 
-async function getEvent(id: string): Promise<EventsProps> {
-  const response = await api.get(`/events/${Number(id)}?populate=*`)
+async function getEvent(slug: string): Promise<EventsProps | undefined> {
+  // const response = await api.get(`/events/${Number(id)}?populate=*`)
+  const response = await api.get(
+    `/events?filters[slug][$eq]=${slug}&populate=*`,
+  )
 
-  const event: EventsProps = response.data.data
+  if (response.data.data.length === 0) {
+    return undefined
+  }
+
+  const event: EventsProps = response.data.data[0]
 
   const url = event.attributes.thumb.data.attributes.url
 
@@ -150,13 +167,14 @@ async function getEvent(id: string): Promise<EventsProps> {
       },
     },
   }
+
   // const formattedEvents = events.data.map((event: EventsProps) => {
 
   return formattedEvent
 }
 export default async function Event({ params }: EventProps) {
   noStore()
-  const event = await getEvent(params.id)
+  const event = await getEvent(params.slug)
 
   return (
     <div className={`flex flex-col bg-zinc-950`}>

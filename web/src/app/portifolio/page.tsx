@@ -27,7 +27,6 @@ export interface EventsProps {
 
 async function fetchEvents(): Promise<EventsProps[]> {
   const response = await api.get(`/events?populate[0]=thumb&sort=order`)
-
   const events = response.data
 
   const formattedEvent = events.data.map((event: EventsProps) => {
@@ -79,7 +78,7 @@ export default async function Portifolio() {
               <Link
                 key={event.id}
                 className="h-96 relative group cursor-pointer"
-                href={`/portifolio/${event.id}`}
+                href={`/portifolio/${event.attributes.slug}`}
               >
                 <div className="t absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex justify-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5 flex-col">
                   <h2 className="text-lg uppercase font-bold text-white">
