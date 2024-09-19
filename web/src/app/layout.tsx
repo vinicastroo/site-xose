@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import 'react-photo-view/dist/react-photo-view.css'
 import Script from 'next/script'
+import { Providers } from './providers'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -46,7 +47,7 @@ export default function RootLayout({
       </head>
       <body className={(inter.className, notable.variable)}>
         <div className="antialiased">
-          {children}
+          <Providers>{children}</Providers>
           <Analytics />
         </div>
 

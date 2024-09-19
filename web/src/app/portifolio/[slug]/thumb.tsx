@@ -1,6 +1,6 @@
 'use client'
 
-import { PhotoProvider, PhotoView } from 'react-photo-view'
+import { PhotoView } from 'react-photo-view'
 import Image from 'next/image'
 import type { ThumbProps } from './page'
 export default function Thumbnail({ thumb }: { thumb: ThumbProps }) {
@@ -9,19 +9,17 @@ export default function Thumbnail({ thumb }: { thumb: ThumbProps }) {
   }
 
   return (
-    <div className="relative h-[250px] lg:h-[600px] lg:w-[1280px] rounded-md">
-      <PhotoProvider>
-        <PhotoView src={thumb.attributes.cdn_url}>
-          <Image
-            src={thumb.attributes.cdn_url}
-            className="lg:h-[600px] lg:w-[1280px] object-contain rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
-            width={thumb.attributes.width}
-            height={thumb.attributes.height}
-            quality={100}
-            alt="thumbnail"
-          />
-        </PhotoView>
-      </PhotoProvider>
+    <div className="relative lg:h-[600px] h-[300px] object-cover w-full rounded-md">
+      <PhotoView src={thumb.attributes.cdn_url}>
+        <Image
+          src={thumb.attributes.cdn_url}
+          className="w-full h-full object-cover bg-cover rounded-md !m-0!p-0 hover:opacity-80 cursor-pointer"
+          width={1280}
+          height={600}
+          quality={100}
+          alt="thumbnail"
+        />
+      </PhotoView>
     </div>
   )
 }
