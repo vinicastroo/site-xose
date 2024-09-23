@@ -92,9 +92,9 @@ export default async function Portifolio() {
                 {event && event.attributes.thumb.data.attributes.cdn_url && (
                   <Image
                     src={event.attributes.thumb.data.attributes.cdn_url}
-                    className="!m-0 !p-0 group-hover:opacity-80"
-                    width={400}
-                    height={400}
+                    className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
+                    width={event.attributes.thumb.data.attributes.width}
+                    height={event.attributes.thumb.data.attributes.height}
                     quality={100}
                     // fill
                     alt="thumbnail"
