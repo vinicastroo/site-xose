@@ -80,7 +80,7 @@ export default async function Portifolio() {
                 className="h-96 relative group cursor-pointer"
                 href={`/portifolio/${event.attributes.slug}`}
               >
-                <div className="t absolute bottom-0 left-0 h-full w-full z-30 bg-foreground/50 flex justify-end p-8 bg-gradient-to-tr from-zinc-950/10 to-zinc-950/5 flex-col">
+                <div className="t absolute bottom-0 left-0 h-full w-full z-30 flex justify-end p-8 flex-col">
                   <h2 className="text-lg uppercase font-bold text-white">
                     {event.attributes.titulo}
                   </h2>
@@ -92,11 +92,10 @@ export default async function Portifolio() {
                 {event && event.attributes.thumb.data.attributes.cdn_url && (
                   <Image
                     src={event.attributes.thumb.data.attributes.cdn_url}
-                    className="h-96 w-full object-cover rounded-md !m-0 !p-0 group-hover:opacity-80"
-                    sizes="400px"
+                    className="!m-0 !p-0 group-hover:opacity-80"
+                    width={400}
+                    height={400}
                     quality={100}
-                    width={event.attributes.thumb.data.attributes.width}
-                    height={event.attributes.thumb.data.attributes.height}
                     // fill
                     alt="thumbnail"
                   />
