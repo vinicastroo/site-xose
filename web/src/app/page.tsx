@@ -27,7 +27,7 @@ export default async function Home() {
           </h2>
 
           <Link
-            href="https://api.whatsapp.com/send?phone=5547999377961&text=Ola, gostaria de agendar uma sessão"
+            href="https://api.whatsapp.com/send?phone=5547999377961&text=Olá, gostaria de fazer um orçamento."
             className="px-6 py-2 uppercase bg-yellow-400 rounded-md font-inter text-sm lg:text-sm  text-black  font-bold transform hover:-translate-y-1 transition duration-400"
           >
             Fale comigo!

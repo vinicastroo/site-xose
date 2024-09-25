@@ -91,7 +91,7 @@ export function Footer() {
               Fale comigo
             </strong>
             <Link
-              href="https://api.whatsapp.com/send?phone=5547999377961&text=Ol%C3%A1,%20vim%20pelo%20site,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es"
+              href="https://api.whatsapp.com/send?phone=5547999377961&text=Olá, gostaria de fazer um orçamento."
               className="flex items-center gap-2 group ease-out "
             >
               <Phone className="w-5 h-5" />
@@ -124,6 +124,7 @@ export function Footer() {
             <span className="text-zinc-950 group-hover:underline">
               Desenvolvido por
             </span>
+
             <Image
               src="/codelabz.svg"
               alt="Desenvolvido pela empresa codelabz"
