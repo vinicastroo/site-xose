@@ -30,7 +30,12 @@ export function Header() {
     <div
       className={`fixed z-50 w-full item-center transition ${isScrolled ? 'bg-black' : 'bg-transparent'} text-white flex p-4 justify-between items-center`}
     >
-      <Link href="/" className={`text-lg lg:text-2xl hover:opacity-80`}>
+      <Link
+        href="/"
+        className={`text-lg lg:text-2xl hover:opacity-80`}
+        title="Página principal"
+        aria-label="Página principal"
+      >
         <span className="font-title">Guilherme Schulze</span>
       </Link>
 
